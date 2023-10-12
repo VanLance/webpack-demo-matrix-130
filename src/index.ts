@@ -1,5 +1,23 @@
-console.log("hello webpack")
+import TrackerApp from './webApp/TrackerApp';
+import Routine from './tracker/Routine';
+import Workout from './tracker/Workout';
+import Tracker from './tracker/Tracker';
+import { LegDay, Insanity, BoulderingTraining, Pull } from './tracker/routines';
+console.log('hello webpack');
 
-let foo: string 
+const routine = new LegDay('Leg Day', [
+  new Workout('Bulgarian Split Squats', 40),
+  new Workout('Leg Curls', 20),
+  new Workout('Calf Raises', 50),
+  new Workout('Hip Thrusts', 80),
+])
+const routine2 = new BoulderingTraining('Leg Day', [
+  new Workout('Bulgarian Split Squats', 40),
+  new Workout('Leg Curls', 20),
+  new Workout('Calf Raises', 50),
+  new Workout('Hip Thrusts', 80),
+])
 
-foo = 'test'
+const tracker: Tracker = new Tracker(routine2);
+
+new TrackerApp(tracker).displayWorkouts();
